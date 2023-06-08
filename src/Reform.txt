@@ -1,0 +1,227 @@
+import React, { useState } from "react";
+import {
+  Avatar,
+  Button,
+  Container,
+  FormControl,
+  FormHelperText,
+  IconButton,
+  InputAdornment,
+  InputLabel,
+  MenuItem,
+  OutlinedInput,
+  Select,
+  TextField,
+  Typography,
+  TextareaAutosize,
+} from "@mui/material";
+import LockIcon from "@mui/icons-material/Lock";
+import PersonIcon from "@mui/icons-material/Person";
+import PhoneIcon from "@mui/icons-material/Phone";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    marginTop: theme.spacing(8),
+    marginBottom: theme.spacing(2),
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: "100%",
+    marginTop: theme.spacing(3),
+  },
+  formField: {
+    marginTop: theme.spacing(2),
+  },
+  formControl: {
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(1),
+  },
+  textArea: {
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(1),
+    padding: theme.spacing(1),
+    width: "100%",
+    border: `1px solid ${theme.palette.grey[500]}`,
+    borderRadius: theme.shape.borderRadius,
+    resize: "none",
+    "&:focus": {
+      outline: "none",
+      border: `1px solid ${theme.palette.primary.main}`,
+    },
+  },
+  submitButton: {
+    margin: theme.spacing(2, 0),
+  },
+}));
+
+const RegistrationForm = () => {
+  const classes = useStyles();
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [region, setRegion] = useState("");
+  const [street, setStreet] = useState("");
+  const [floor, setFloor] = useState("");
+  const [flat, setFlat] = useState("");
+  const [building, setBuilding] = useState("");
+  const [description, setDescription] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Perform form submission logic here
+    // e.g. API call, validation, etc.
+    console.log("Form submitted:", {
+      firstName,
+      lastName,
+      phoneNumber,
+      email,
+      password,
+      confirmPassword,
+      region,
+      street,
+      floor,
+      flat,
+      building,
+      description,
+    });
+  };
+
+  return (
+    <Container maxWidth="sm" className={classes.container}>
+      <Typography variant="h5">Sign Up</Typography>
+      <form className={classes.form} onSubmit={handleSubmit}>
+        <TextField
+          className={classes.formField}
+          label="First Name"
+          variant="outlined"
+          fullWidth
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+        <TextField
+          className={classes.formField}
+          label="Last Name"
+          variant="outlined"
+          fullWidth
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+        />
+        <TextField
+          className={classes.formField}
+          label="Phone Number"
+          variant="outlined"
+          fullWidth
+          value={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
+        />
+        <TextField
+          className={classes.formField}
+          label="Email"
+          variant="outlined"
+          fullWidth
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <TextField
+          className={classes.formField}
+          label="Password"
+          variant="outlined"
+          type="password"
+          fullWidth
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <TextField
+          className={classes.formField}
+          label="Confirm Password"
+          variant="outlined"
+          type="password"
+          fullWidth
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+        />
+        <FormControl
+          className={classes.formControl}
+          variant="outlined"
+          fullWidth
+        >
+          <InputLabel>Region</InputLabel>
+          <Select
+            value={region}
+            onChange={(e) => setRegion(e.target.value)}
+            label="Region"
+          >
+            <MenuItem value="Amman">Amman</MenuItem>
+            <MenuItem value="Irbid">Irbid</MenuItem>
+            <MenuItem value="Aqaba">Aqaba</MenuItem>
+            <MenuItem value="Zarqa">Zarqa</MenuItem>
+            <MenuItem value="Jerash">Jerash</MenuItem>
+            <MenuItem value="Madaba">Madaba</MenuItem>
+          </Select>
+        </FormControl>
+        <TextField
+          className={classes.formField}
+          label="Street"
+          variant="outlined"
+          fullWidth
+          value={street}
+          onChange={(e) => setStreet(e.target.value)}
+        />
+        <TextField
+          className={classes.formField}
+          label="Floor"
+          variant="outlined"
+          fullWidth
+          value={floor}
+          onChange={(e) => setFloor(e.target.value)}
+        />
+        <TextField
+          className={classes.formField}
+          label="Flat"
+          variant="outlined"
+          fullWidth
+          value={flat}
+          onChange={(e) => setFlat(e.target.value)}
+        />
+        <TextField
+          className={classes.formField}
+          label="Building"
+          variant="outlined"
+          fullWidth
+          value={building}
+          onChange={(e) => setBuilding(e.target.value)}
+        />
+        <TextareaAutosize
+          className={classes.textArea}
+          rowsMin={4}
+          placeholder="Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+        <Button
+          className={classes.submitButton}
+          type="submit"
+          variant="contained"
+          color="primary"
+          fullWidth
+        >
+          Sign Up
+        </Button>
+      </form>
+    </Container>
+  );
+};
+
+export default RegistrationForm;
