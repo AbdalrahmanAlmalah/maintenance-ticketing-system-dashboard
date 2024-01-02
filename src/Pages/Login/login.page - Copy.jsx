@@ -47,13 +47,10 @@ const Login = () => {
           withCredentials: true,
         }
       );
-      if (
-        response?.data.roles === "Manager" ||
-        response?.data.roles === "Admin"
-      ) {
+      if (response?.data.roles === "Manager") {
         navigate("/home");
       } else if (response?.data.roles === "Technician") {
-        navigate("/history");
+        navigate("/tickets");
       } else {
         setErr(response?.data);
       }

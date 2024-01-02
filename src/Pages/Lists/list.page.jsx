@@ -1,16 +1,26 @@
 import "./list.page.scss";
 import Sidebar from "../../Components/Sidebar/sidebar.component";
 import Navbar from "../../Components/Navbar/navbar.component";
-import Datatable from "../../Components/Datatable/dataTable.component";
-const List = ({ title, To }) => {
+import TicketTable from "../../Components/Datatable/ticketTable.component";
+import TechTable from "../../Components/Datatable/techTable.component ";
+
+const List = ({ title }) => {
   return (
     <div className="list-page">
       <Sidebar />
       <div className="listContainer">
         <Navbar />
-        <Datatable title={title} To={To} />
+
+        {title === "Tickets" ? (
+          <TicketTable title={title} />
+        ) : title === "Technicians" ? (
+          <TechTable title={title} />
+        ) : title === "Managers" ? (
+          <TechTable title={title} /> // Replace "AllTicketsTable" with the actual component name for the table displaying all tickets
+        ) : null}
       </div>
     </div>
   );
 };
+
 export default List;

@@ -19,7 +19,7 @@ const AvatarStyle = { backgroundColor: "#3E54AC" };
 const btnStyle = { margin: "8px 0" };
 const TxtFiled = { margin: "8px 0" };
 
-const SignUp = () => {
+const SignUp = ({ handleChange }) => {
   const navigate = useNavigate();
   const [name, setUser] = useState("");
   const [phone, setPhone] = useState("");
@@ -40,21 +40,15 @@ const SignUp = () => {
     e.preventDefault();
     try {
       const response = await axios.post("/signup", 
-      { name, phone, password, region, street, building, floor, flat },
-      {headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-        withCredentials: true
-      }
+      { name, phone, password, region, street, building, floor, flat }
       );
-      if (document.cookie) {
+      if (response?.data?.roles) {
+        const token = JSON.stringify(response?.data);
+        localStorage.setItem("token", token);
         navigate("/");
         window.location.reload();
       } else {
-        const errorParts = response?.data.split(':');
-        const errorMessage = errorParts[errorParts.length - 1].trim();
-        setErr(errorMessage);
+        setErr(response?.data);
       }
     } catch (err) {
       setErr(err.message);
@@ -76,7 +70,7 @@ const SignUp = () => {
       }
     };
     fetchData();
-  }, [regions]);
+  }, []);
 
   return (
     <>
@@ -227,9 +221,7 @@ const SignUp = () => {
                     variant="contained"
                     style={btnStyle}
                     disabled={!validMatch}
-                  > 
-                    Sign Up 
-                  </Button>
+                  > Sign Up </Button>
                 </Grid>
               </Grid>
             </form>

@@ -11,18 +11,46 @@
       object-fit: cover;
     }
   }
-
+  .detailItem {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
   .status {
     padding: 5px;
     border-radius: 5px;
 
-    &.Approved {
+    &.New {
       color: green;
       background-color: rgba(0, 128, 0, 0.151);
     }
-    &.Pending {
+    &.Approved {
       color: goldenrod;
       background-color: rgba(189, 189, 3, 0.103);
+    }
+    &.Rejected {
+      color: red;
+      background-color: rgba(212, 109, 109, 0.103);
+    }
+    &.Done {
+      color: rgb(32, 51, 255);
+      background-color: rgba(58, 204, 227, 0.103);
+    }
+  }
+  .priority {
+    padding: 5px;
+    border-radius: 5px;
+
+    &.Normal {
+      color: green;
+      background-color: rgba(0, 128, 0, 0.151);
+    }
+    &.Minor {
+      color: rgb(44, 32, 218);
+      background-color: rgba(58, 204, 227, 0.103);
+    }
+    &.Critical {
+      color: red;
+      background-color: rgba(212, 109, 109, 0.103);
     }
   }
 }

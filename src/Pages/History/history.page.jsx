@@ -2,13 +2,14 @@ import "./history.page.scss";
 import Sidebar from "../../Components/Sidebar/sidebar.component";
 import Navbar from "../../Components/Navbar/navbar.component";
 import Table from "../../Components/Table/table.component";
-const History = ({ title, To }) => {
+const History = ({ title }) => {
   return (
     <div className="history-page">
       <Sidebar />
       <div className="historyContainer">
         <Navbar />
-        <Table className="table" title={title} To={To} />
+        <h1 className="datatitle">{title}</h1>
+        <Table className="table" title={title} />
       </div>
     </div>
   );

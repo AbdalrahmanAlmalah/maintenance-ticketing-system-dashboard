@@ -4,8 +4,34 @@ import Navbar from "../../Components/Navbar/navbar.component";
 import Widget from "../../Components/widget/widget.component";
 import Featured from "../../Components/Featured/Featured.component";
 import Chart from "../../Components/Chart/Chart";
-import Table from "../../Components/Table/table.component";
+import TableComponent from "../../Components/Table/table.component";
+import { useState, useEffect } from "react";
+import axios from "../../api/axios";
+
 const Home = () => {
+  const [userRole, setUserRole] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("/user", {
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+          withCredentials: true,
+        });
+        const user = response?.data;
+        const role = user?.role;
+        setUserRole(role);
+      } catch (error) {
+        console.error("Error fetching user role:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className="home-page">
       <Sidebar />
@@ -14,21 +40,24 @@ const Home = () => {
         <div className="widgets">
           <Widget type="user" />
           <Widget type="technician" />
-          <Widget type="Approved" />
-          <Widget type="done" />
+          <Widget type="All" />
+          <Widget type="new" />
         </div>
         <div className="charts">
           <Featured />
-          <Chart title="Last 6 Months " aspect={2 / 1} />
+          <Chart title="This Year" aspect={2 / 1} />
         </div>
-        <div className="listContainer">
-          <div className="listTitle">
-            Latest Tickets
-            <Table />
+        {userRole !== "Admin" && (
+          <div className="listContainer">
+            <div className="listTitle">
+              Latest Tickets
+              <TableComponent />
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
 };
+
 export default Home;

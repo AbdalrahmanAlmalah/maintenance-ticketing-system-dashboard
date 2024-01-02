@@ -16,7 +16,7 @@ const Featured = () => {
         <div className="featuredChart">
           <CircularProgressbar value={70} text={"70%"} strokeWidth={5} />
         </div>
-        <p className="title">Total Repairs made today</p>
+        <p className="title">Total Repairs made This Year !</p>
         <p className="amount">42</p>
         <p className="desc">
           Previous Repairs processing. Last Repair may not be included.

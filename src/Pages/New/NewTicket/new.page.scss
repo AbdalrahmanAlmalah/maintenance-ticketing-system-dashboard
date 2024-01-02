@@ -22,11 +22,12 @@
         flex: 1;
         text-align: center;
 
-        img {
-          width: 100px;
-          height: 100px;
-          border-radius: 50%;
-          object-fit: cover;
+        .icona {
+          margin-top: 40%;
+          width: 400px;
+          height: 300px;
+          border-radius: 0%;
+          color: green;
         }
       }
 
@@ -38,18 +39,16 @@
           flex-wrap: wrap;
           gap: 30px;
           justify-content: space-between;
-
+          width: 70%;
           .formInput {
-            width: 40%;
-
+            margin-right: 40%;
+            margin-top: 20px;
+            width: 80%;
             label {
               display: flex;
               align-items: center;
               gap: 10px;
-
-              .icon {
-                cursor: pointer;
-              }
+              font-size: 20px;
             }
 
             input {
@@ -69,9 +68,26 @@
             font-weight: bold;
             cursor: pointer;
             margin-top: 10px;
+            border-radius: 20px;
+            margin-top: 80px;
           }
         }
       }
     }
+  }
+
+  .custom-select__input {
+    padding: 6px;
+    border: 1px solid #48a155;
+    border-radius: 4px;
+    background-color: #ffffff;
+    width: 100%;
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    color: #48a155;
+    cursor: pointer;
+
+    top: 50%;
+    right: 10px;
   }
 }

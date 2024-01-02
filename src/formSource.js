@@ -1,5 +1,4 @@
 export const userInputs = [
-  
   {
     id: 2,
     label: "Name and surname",
@@ -48,28 +47,18 @@ export const userInputs = [
 
 export const ticketInputs = [
   {
-    id: 1,
-    label: "Title",
-    type: "text",
-    placeholder: "Apple Macbook Pro",
-  },
-  {
     id: 2,
     label: "Description",
     type: "text",
     placeholder: "Description",
   },
-  {
-    id: 3,
-    label: "Category",
-    type: "text",
-    placeholder: "Computers",
-  },
+];
+/*,
   {
     id: 4,
     label: "Priority",
     type: "text",
-    placeholder: "normal",
+    placeholder: "normal , minor, critical",
   },
   {
     id: 5,
@@ -82,34 +71,38 @@ export const ticketInputs = [
     id: 6,
     label: "Ticket Owner",
     type: "text",
-    placeholder: "Customer Name",
-  },
-];
-
+    placeholder: "Technician Name",
+  },*/
 export const techInputs = [
- 
   {
-    id: 2,
+    id: 1,
     label: "Name and surname",
     type: "text",
     placeholder: "John Doe",
   },
 
   {
-    id: 3,
+    id: 2,
     label: "Phone",
     type: "text",
     placeholder: "+1 234 567 89",
   },
   {
-    id: 4,
+    id: 3,
     label: "Password",
     type: "password",
   },
   {
-    id: 5,
+    id: 4,
     label: "Region",
     type: "text",
     placeholder: "Elton St. 216 NewYork",
+  },
+];
+export const RqInput = [
+  {
+    id: 1,
+    label: "Enter New Region",
+    type: "text",
   },
 ];

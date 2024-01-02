@@ -1,5 +1,5 @@
-import Sidebar from "../../Components/Sidebar/sidebar.component";
-import Navbar from "../../Components/Navbar/navbar.component";
+import Sidebar from "../../../Components/Sidebar/sidebar.component";
+import Navbar from "../../../Components/Navbar/navbar.component";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import "./new.page.scss";
 import { useState } from "react";
@@ -9,6 +9,7 @@ const New = ({ inputs, title }) => {
 
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
+
     setFile(selectedFile);
   };
 
